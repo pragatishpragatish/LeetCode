@@ -1,12 +1,12 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        total = 0
-        map = {0: 1}
         count = 0
-        for i in nums:
-            total += i
-            if (total - k) in map:
-                count += map[total - k]
+        tsum = 0
+        map = {0: 1}
 
-            map[total] = map.get(total, 0) + 1
+        for num in nums:
+            tsum += num
+            count += map.get(tsum - k, 0)
+            map[tsum] = map.get(tsum, 0) + 1
+
         return count
