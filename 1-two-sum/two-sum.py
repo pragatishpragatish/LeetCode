@@ -5,4 +5,5 @@ class Solution:
             rem = target - num
             if rem in map:
                 return [map[rem], i]
+
             map[num] = i
