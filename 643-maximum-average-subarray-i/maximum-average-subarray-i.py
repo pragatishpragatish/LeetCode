@@ -4,7 +4,7 @@ class Solution:
         maxSum = windowSum
 
         for i in range(k, len(nums)):
-            windowSum += nums[i] - nums[i - k]
-            maxSum = max(maxSum, windowSum)
+            windowSum += nums[i] - nums[i-k]
+            maxSum = max(windowSum, maxSum)
 
-        return maxSum / k
+        return maxSum/k
