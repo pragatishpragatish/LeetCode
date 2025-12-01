@@ -5,5 +5,6 @@ class Solution:
 
         for x in nums:
             currSum = max(currSum+x, x)
-            maxSum = max(maxSum, currSum)
+            maxSum = max(currSum, maxSum)
+
         return maxSum
