@@ -29,7 +29,7 @@ class Solution:
             
             # Remove zero counts so dicts match
             if a[s[l]] == 0:
-                del a[s[l]]
+                a.pop(s[l])
             
             l += 1
             
