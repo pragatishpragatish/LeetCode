@@ -3,6 +3,6 @@ class Solution:
         nums.sort()
         s = 0
         for i in range(0, len(nums), 2):
-            s += min(nums[i:i+2])
+            s += nums[i]
         
         return s
