@@ -5,7 +5,8 @@ class Solution:
         si, e = 0, 0
         for i in range(len(s)):
             hash[s[i]] = i
-        for i, c in enumerate(s):
+        for i in range(len(s)):
+            c = s[i]
             si += 1
             e = max(e, hash[c])
 
