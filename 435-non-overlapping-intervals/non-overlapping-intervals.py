@@ -10,7 +10,8 @@ class Solution:
 
             if curr[0] >= prev[1]:
                 prev = curr
-            else:
-                count += 1
+                continue
+            
+            count += 1
 
         return count 
