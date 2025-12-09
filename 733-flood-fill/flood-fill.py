@@ -1,23 +1,25 @@
 class Solution:
-    def floodFill(self, images: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-        row, col = len(images), len(images[0])
-        start_color = images[sr][sc]
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
+        rows, cols = len(image), len(image[0])
+        iniCol = image[sr][sc]
+        if iniCol == color:
+            return image
+        seen = set()
 
-        if start_color == color:
-            return images
-
-        def dfs(r,c):
-            if r < 0 or r >= row or c < 0 or c >= col:
+        def dfs(r,c):            
+            if r < 0 or r >= rows or c < 0 or c >= cols:
                 return
-
-            if images[r][c] != start_color:
+            if (r,c) in seen:
                 return
-            
-            images[r][c] = color
+            seen.add((r,c))
+            if image[r][c] != iniCol:
+                return
+            image[r][c] = color
 
-            dfs(r-1, c)
-            dfs(r+1, c)
-            dfs(r, c+1)
-            dfs(r, c-1)
+            directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+            for dr, dc in directions:
+                if (r+dr, c+dc) not in seen:
+                    dfs(r+dr, c+dc)
+
         dfs(sr, sc)
-        return images
+        return image
