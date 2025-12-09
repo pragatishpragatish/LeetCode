@@ -1,7 +1,7 @@
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         seen = set()
-        province = 0
+        provinces = 0
         n = len(isConnected)
 
         def dfs(city):
@@ -10,10 +10,8 @@ class Solution:
                     seen.add(nei)
                     dfs(nei)
 
-
         for city in range(n):
             if city not in seen:
                 dfs(city)
-                province += 1
-
-        return province
+                provinces += 1
+        return provinces
