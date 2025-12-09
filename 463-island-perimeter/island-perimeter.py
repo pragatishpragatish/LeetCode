@@ -5,14 +5,12 @@ class Solution:
         seen = set()
 
         def dfs(r, c):
-            if r >= rows or r < 0 or c < 0 or c >= cols:
+            if r >= rows or r < 0 or c < 0 or c >= cols or grid[r][c] != 1:
                 return 1
 
             if (r, c) in seen:
                 return 0
 
-            if grid[r][c] != 1:
-                return 1
             seen.add((r, c))
 
             peri = 0
