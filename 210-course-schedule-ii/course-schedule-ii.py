@@ -2,25 +2,26 @@ class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         res = []
         graph = {i:[] for i in range(numCourses)}
-        visit = set()
-        cycle = set()
+        visited = set()
 
         for a, b in prerequisites:
             graph[a].append(b)
 
         def dfs(node):
-            if node in cycle:
+            if node in visited:
                 return False
 
-            if node in visit:
+            if graph[node] == []:
+                if node not in res:
+                    res.append(node)
                 return True
 
-            cycle.add(node)
+            visited.add(node)
             for x in graph[node]:
                 if not dfs(x):
                     return False
-            cycle.remove(node)
-            visit.add(node)
+            visited.remove(node)
+            graph[node] = []
             res.append(node)
             return True
 
