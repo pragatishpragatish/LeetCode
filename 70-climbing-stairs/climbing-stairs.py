@@ -11,7 +11,8 @@ class Solution:
             
             if n in memo:
                 return memo[n]
-            memo[n] = fib(n-1) + fib(n-2)
+            if not n in memo:
+                memo[n] = fib(n-1) + fib(n-2)
 
             return fib(n-1) + fib(n-2)
         return fib(n)
