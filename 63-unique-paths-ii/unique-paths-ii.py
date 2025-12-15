@@ -1,6 +1,8 @@
 class Solution:
     def uniquePathsWithObstacles(self, grid: List[List[int]]) -> int:
         r, c = len(grid), len(grid[0])
+        if grid[r-1][c-1] == 1:
+            return 0
         res = []
 
         for _ in range(r+1):
