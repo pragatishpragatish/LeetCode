@@ -6,12 +6,12 @@ class Solution:
         half = tSum // 2
         seen = {0}
 
-        for i in range(len(nums)-1, -1, -1):
+        for a in nums:
             if half in seen:
                 return True
             temp = []
             for x in seen:
-                temp.append(x+nums[i])
+                temp.append(x+a)
 
             while temp:
                 seen.add(temp.pop())
