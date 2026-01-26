@@ -1,6 +1,12 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        num = set(nums)
-        for i in range(len(nums)+1):
-            if i not in num:
-                return i
+        n = len(nums)
+        arrXOR = 0
+        for x in nums:
+            arrXOR ^= x
+
+        for i in range(n+1):
+            arrXOR ^= i
+
+        return arrXOR
+            
